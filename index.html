@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Happy Birthday, Hero!</title>
+  <meta name="description" content="A birthday card for a real-life hero">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Pacifico&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="sun"></div>
+    <div class="grid"></div>
+  </div>
+
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <!-- Intro: the click is needed so the browser allows playing music -->
+  <section id="intro" class="intro">
+    <p class="eyebrow">Incoming transmission</p>
+    <h1 class="intro-title">Someone is<br>holding out<br>for a hero…</h1>
+    <button id="open-btn" class="btn-open" type="button">
+      <span>Open the card</span>
+    </button>
+    <p class="hint">🔊 sound on</p>
+  </section>
+
+  <main id="card" class="card" hidden>
+    <p class="eyebrow">It's your day</p>
+    <h1 class="title">
+      <span class="neon">Happy</span>
+      <span class="neon">Birthday</span>
+    </h1>
+    <p class="name" id="friend-name"></p>
+
+    <article class="letter">
+      <p id="message"></p>
+      <p class="signature">— <span id="from"></span></p>
+    </article>
+
+    <h2 class="section-title">Wishes from your crew</h2>
+    <div id="wishes" class="wishes"></div>
+
+    <button id="confetti-btn" class="btn-ghost" type="button">More confetti 🎉</button>
+  </main>
+
+  <button id="music-btn" class="music-btn" type="button" hidden aria-label="Pause music">♫</button>
+  <div id="yt-player" class="yt-hidden"></div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
