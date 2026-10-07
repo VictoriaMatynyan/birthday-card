@@ -67,6 +67,15 @@
   $("joker-img").src = cfg.hero.img;
   $("joker-img").alt = cfg.hero.alt;
 
+  // on small screens the Joker stands above the crew row instead of beside the terminal
+  const jokerHome = joker.parentElement;
+  const smallScreen = matchMedia("(max-width: 700px)");
+  function placeJoker() {
+    (smallScreen.matches ? $("joker-stage") : jokerHome).append(joker);
+  }
+  smallScreen.addEventListener("change", placeJoker);
+  placeJoker();
+
   function say(text) {
     bubble.textContent = text;
     bubble.classList.remove("show");
