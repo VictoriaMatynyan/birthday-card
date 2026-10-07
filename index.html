@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Happy Birthday, Hero!</title>
+  <title>Happy Birthday, Rock Star!</title>
   <meta name="description" content="A birthday card for a real-life hero">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Pacifico&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Pacifico&family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,36 +19,86 @@
     <div class="grid"></div>
   </div>
 
+  <div id="crew" class="crew" hidden></div>
+
   <canvas id="confetti" aria-hidden="true"></canvas>
 
   <!-- Intro: the click is needed so the browser allows playing music -->
   <section id="intro" class="intro">
-    <p class="eyebrow">Incoming transmission</p>
-    <h1 class="intro-title">Someone is<br>holding out<br>for a hero…</h1>
+    <div class="guards">
+      <div class="guard guard-left">
+        <div class="guard-body">
+          <img class="guard-side" src="assets/img/side.png"
+               alt="Samurai in red lacquered armor and a horned golden helmet, standing in profile and facing the sun">
+          <img class="guard-front" src="assets/img/front.png"
+               alt="The same samurai turned to face you: red oni mask, golden crescent horns and a dragon on the breastplate">
+        </div>
+      </div>
+      <div class="guard guard-right">
+        <div class="guard-body">
+          <img class="guard-side" src="assets/img/side.png"
+               alt="Second samurai in matching red armor, standing guard on the other side of the sun">
+          <img class="guard-front" src="assets/img/front.png"
+               alt="The second samurai turned to face you, arms held out to the sides, red armor glowing in the sunset">
+        </div>
+      </div>
+    </div>
+    <h1 class="intro-title">
+      <span class="intro-pre">Someone is</span>
+      <span class="intro-main">Holding out</span>
+      <span class="intro-script">for a hero…</span>
+    </h1>
     <button id="open-btn" class="btn-open" type="button">
+      <span class="btn-arrow" aria-hidden="true"></span>
       <span>Open the card</span>
     </button>
     <p class="hint">🔊 sound on</p>
   </section>
 
   <main id="card" class="card" hidden>
-    <p class="eyebrow">It's your day</p>
+    <p class="eyebrow">We're holding out for you!</p>
     <h1 class="title">
       <span class="neon">Happy</span>
-      <span class="neon">Birthday</span>
+      <span class="neon">Birthday,</span>
     </h1>
     <p class="name" id="friend-name"></p>
+
+    <div class="terminal-wrap">
+      <div class="terminal">
+        <div class="terminal-bar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <p>birthday.cpp — g++</p>
+        </div>
+        <pre aria-live="polite"><code id="terminal"></code></pre>
+      </div>
+      <button id="joker" class="joker" type="button" aria-label="Poke the birthday hero">
+        <img id="joker-img" alt="The birthday hero as a low-poly Joker with green hair and a purple suit">
+        <span id="joker-bubble" class="bubble"></span>
+      </button>
+    </div>
 
     <article class="letter">
       <p id="message"></p>
       <p class="signature">— <span id="from"></span></p>
     </article>
 
-    <h2 class="section-title">Wishes from your crew</h2>
-    <div id="wishes" class="wishes"></div>
+    <!-- for small screens -->
+    <div id="crew-row" class="crew-row"></div>
+
+    <h2 class="section-title">Go get your gift!</h2>
+    <p id="gift-hint" class="gift-hint" aria-live="polite">One of these cards hides your present</p>
+    <div id="gift-cards" class="gift-cards"></div>
 
     <button id="confetti-btn" class="btn-ghost" type="button">More confetti 🎉</button>
   </main>
+
+  <div id="achievement" class="achievement" role="status" hidden>
+    <div class="achievement-icon" aria-hidden="true">🏆</div>
+    <div>
+      <p class="achievement-title">Achievement unlocked</p>
+      <p class="achievement-text" id="achievement-text"></p>
+    </div>
+  </div>
 
   <button id="music-btn" class="music-btn" type="button" hidden aria-label="Pause music">♫</button>
   <div id="yt-player" class="yt-hidden"></div>
